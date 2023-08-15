@@ -34,19 +34,21 @@ class MainActivity : AppCompatActivity() {
         submit.setOnClickListener{
 
             var weight =weightValue.text.toString().toInt()
-            var height =heightValue.text.toString().toInt()
+            var height =heightValue.text.toString().toDouble()
             height /= 100
 
             Log.i("weight value is:","${weight}")
             Log.i("height value is:","${height}")
 
-            var bmiCalc=0;
+            var bmiCalc: Double = 0.0
             if(weight>0 && height>0){
                 bmiCalc=weight/(height*height)
             }
 
             card.visibility= View.VISIBLE
-            bmiValue.setText(bmiCalc.toString())
+            String.format("%.2f", 0.0).toDouble()
+
+            bmiValue.setText(String.format("%.2f", bmiCalc))
             Log.i("bmi value is:","${bmiCalc}")
         }
 
